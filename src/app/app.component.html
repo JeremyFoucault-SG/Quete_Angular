@@ -1,4 +1,14 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
-
- <app-user-profile></app-user-profile>
+<ul>
+        <li>
+            <a [routerLink]="['/']">User Profile</a>
+          </li>
+          <li>
+            <a [routerLink]="['/sign-up']">Sign Up</a>
+          </li>
+          <li>
+            <a [routerLink]="['/user-profile']">User Profile</a>
+          </li>
+        </ul>
+        
+        <router-outlet></router-outlet>
+        
