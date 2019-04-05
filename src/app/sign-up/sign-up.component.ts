@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
+  model: Order = new Order();
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSubmit() {
+  }
 }
+  export class Order {
+    title: string;
+    quantity: number;
+    date: Date;
+    contact: string;
+  }
+

@@ -1,3 +1,25 @@
-<p>
-  sign-up works!
-</p>
+
+<h2 class="d-flex justify-content-center">My form</h2>
+<div class="d-flex justify-content-center">
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+  <div>
+    <label for="email-order">Email</label>
+    <input name="email-order" type="email" [(ngModel)]="model.email" #email="ngModel" required email>
+  </div>
+  <div *ngIf="email.errors && myForm.submitted">
+    <span *ngIf="email.errors.required" style="color: red">Le champs email est invalide</span>
+    <span *ngIf="email.errors.email" style="color: red">L'adresse email doit être valide</span>
+  </div>
+  <div>
+    <label for="user-order">User</label>
+    <input name="user-order" type="user" [(ngModel)]="model.user" #user="ngModel" required minlength="4" maxlength="25">
+  </div>
+  <div *ngIf="user.errors && myForm.submitted">
+    <span *ngIf="user.errors.required" style="color: red">Le champs user est requis</span>
+    <span *ngIf="user.errors.minlength" style="color: red">Le champ user doit dépasser 4 caractères</span>
+    <span *ngIf="user.errors.maxlength" style="color: red">Le champ user ne doit pas dépasser 25 caractères</span>
+  </div>
+  <button type="reset">Restaurer</button>
+  <button type="submit">Sauvegarder</button>
+</form>
+</div>
